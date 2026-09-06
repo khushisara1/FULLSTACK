@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdminPro | Dashboard</title>
+    <title>MyAdmin | Analytics Dashboard</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-
         :root {
-            --navy: #101b32;
+            --navy: #17233b;
             --ink: #17233b;
             --muted: #8490a7;
             --line: #e7edf5;
             --wash: #f5f8fc;
-            --blue: #3a6ff7;
+            --blue: #2563eb;
             --green: #16ad70;
             --red: #ea4d55;
             --orange: #ef941d;
@@ -26,7 +24,7 @@
             min-height: 100vh;
             background: #edf3f9;
             color: var(--ink);
-            font-family: 'DM Sans', sans-serif;
+            font-family: Arial, sans-serif;
         }
         button { font: inherit; }
         .app-shell {
@@ -51,7 +49,7 @@
             gap: 10px;
             padding: 0 10px 34px;
             color: white;
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: Arial, sans-serif;
             font-weight: 700;
             font-size: 18px;
         }
@@ -120,7 +118,7 @@
         .chart-wrap { height: 171px; }
         .chart-wrap svg { width: 100%; height: 100%; overflow: visible; }
         .chart-grid { stroke: #edf1f7; stroke-width: 1; }
-        .chart-label { fill: #a2adbd; font: 9px 'DM Sans'; }
+        .chart-label { fill: #a2adbd; font: 9px Arial; }
         .chart-line { fill: none; stroke: var(--blue); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
         .chart-area { fill: url(#area); }
         .bar-chart { display: flex; align-items: end; justify-content: space-between; height: 145px; padding: 15px 7px 0; border-bottom: 1px solid var(--line); }
@@ -157,7 +155,7 @@
 <body>
     <div class="app-shell">
         <aside class="sidebar">
-            <div class="brand"><span class="brand-mark">A</span><span>AdminPro</span></div>
+            <div class="brand"><span class="brand-mark">M</span><span>MyAdmin</span></div>
             <div class="nav-label">Workspace</div>
             <nav class="nav-list" aria-label="Main navigation">
                 <button class="nav-item active"><span class="nav-icon">▦</span><span>Dashboard</span></button>
@@ -167,14 +165,14 @@
                 <button class="nav-item"><span class="nav-icon">◈</span><span>Products</span></button>
                 <button class="nav-item"><span class="nav-icon">⚙</span><span>Settings</span></button>
             </nav>
-            <div class="profile"><div class="avatar">AT</div><div><strong>Ayush Tiwari</strong><span>Administrator</span></div></div>
+            <div class="profile"><div class="avatar">ME</div><div><strong>My Account</strong><span>Administrator</span></div></div>
         </aside>
         <main>
             <header class="topbar">
                 <label class="search"><span>⌕</span><input type="search" placeholder="Search anything..."></label>
                 <div class="top-actions"><button aria-label="Notifications">♧</button><button aria-label="Messages">✉</button><div class="avatar">AT</div></div>
             </header>
-            <section class="heading"><div><h1>Dashboard</h1><p>Welcome back, Ayush. Here's what's happening today.</p></div><div class="date">◷ &nbsp; 12 Jun 2024 - 18 Jun 2024</div></section>
+            <section class="heading"><div><h1>Analytics Dashboard</h1><p>Welcome back. Here is a quick look at your work today.</p></div><div class="date">◷ &nbsp; This week</div></section>
             <section class="metrics" aria-label="Key metrics">
                 <article class="metric"><div class="metric-top"><span>Total Revenue</span><span class="metric-icon">◉</span></div><h2>₹1,24,532</h2><span class="trend">↑ 12.5% <span style="color:var(--muted)">vs last month</span></span></article>
                 <article class="metric"><div class="metric-top"><span>Total Orders</span><span class="metric-icon">▣</span></div><h2>892</h2><span class="trend">↑ 8.2% <span style="color:var(--muted)">vs last month</span></span></article>
