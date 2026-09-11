@@ -3,12 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tailwind Welcome</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <div class="bg-black text-white">
-        <p>Hello World!!</p>
-    </div>
+<body class="min-h-screen bg-slate-950 text-slate-900">
+    <main class="mx-auto flex min-h-screen max-w-6xl items-center px-6 py-10 sm:px-10">
+        <section class="grid w-full overflow-hidden rounded-3xl bg-white shadow-2xl shadow-slate-950/40 lg:grid-cols-[1.1fr_0.9fr]">
+            <div class="flex flex-col justify-center bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 p-8 text-white sm:p-12 lg:p-16">
+                <div class="mb-12 flex items-center justify-between">
+                    <span class="text-sm font-bold uppercase tracking-[0.25em] text-blue-100">Tailwind practice</span>
+                    <span class="rounded-full border border-white/30 px-3 py-1 text-xs text-blue-50">01 / 01</span>
+                </div>
+
+                <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-cyan-100">A small beginning</p>
+                <h1 class="max-w-lg text-5xl font-black leading-tight tracking-tight sm:text-6xl">Hello World<span class="text-orange-300">!!</span></h1>
+                <p class="mt-6 max-w-md text-base leading-7 text-blue-50 sm:text-lg">A simple page made with Tailwind CSS, clean spacing, and a little color.</p>
+
+                <a href="#explore" class="mt-8 inline-flex w-fit items-center rounded-full bg-orange-400 px-6 py-3 font-bold text-slate-950 shadow-lg shadow-orange-950/20 transition hover:bg-orange-300 focus:outline-none focus:ring-4 focus:ring-orange-200/60">Explore the page <span class="ml-3 text-lg">&rarr;</span></a>
+            </div>
+
+            <div id="explore" class="flex flex-col justify-between gap-8 bg-slate-50 p-8 sm:p-12 lg:p-16">
+                <div>
+                    <div class="mb-6 overflow-hidden rounded-2xl shadow-lg shadow-slate-200">
+                        <img src="images/img8.jpg" alt="Colorful riverside restaurant at night" class="h-56 w-full object-cover transition duration-500 hover:scale-105">
+                    </div>
+                    <p class="text-sm font-bold uppercase tracking-widest text-orange-500">What I am learning</p>
+                    <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900">Building one page at a time.</h2>
+                    <p class="mt-4 leading-7 text-slate-600">Tailwind makes it easy to experiment with layouts, responsive design, and beautiful details directly in the HTML.</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                        <p class="text-2xl font-black text-blue-700">01</p>
+                        <p class="mt-1 text-sm text-slate-500">Project</p>
+                    </div>
+                    <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                        <p class="text-2xl font-black text-orange-500">CSS</p>
+                        <p class="mt-1 text-sm text-slate-500">In progress</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
