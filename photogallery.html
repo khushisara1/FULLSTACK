@@ -3,49 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bento Gallery here</title>
+<title>Travel Photo Gallery</title>
 
 <style>
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: clamp(18px, 4vw, 48px);
+    background: #101c2b;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.gallery-header {
+    width: min(1100px, 100%);
+    margin: 0 auto 22px;
+}
+
+.gallery-header p {
+    margin: 0 0 8px;
+    color: #79c8d8;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.gallery-header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+}
+
 .bento-grid {
+    width: min(1100px, 100%);
+    height: min(760px, 75vh);
+    min-height: 540px;
+    margin: 0 auto;
     display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 200px);
-
-    gap: 16px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 14px;
 }
 
 .card {
-    background: #f5f5f5;
-    border-radius: 20px;
-    padding: 20px;
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #24384d;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
 }
 
-/* Large card */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 45% 0 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 350ms ease;
+}
+
+.card:hover img {
+    transform: scale(1.06);
+}
+
+.card-content {
+    position: absolute;
+    z-index: 1;
+    right: 18px;
+    bottom: 16px;
+    left: 18px;
+}
+
+.card-content h2 {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.35rem);
+}
+
+.card-content p {
+    margin: 5px 0 0;
+    color: #dbeafe;
+    font-size: 0.8rem;
+}
+
 .card1 {
     grid-column: span 2;
     grid-row: span 2;
 }
 
-/* Normal card */
-.card2 {
+.card2,
+.card3,
+.card5 {
     grid-column: span 2;
 }
 
-/* Wide card */
-.card3 {
-    grid-column: span 2;
-}
-
-/* Tall card */
 .card4 {
     grid-row: span 2;
 }
 
-/* Wide card */
-.card5 {
-    grid-column: span 2;
+@media (max-width: 700px) {
+    .bento-grid {
+        height: auto;
+        min-height: 0;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(4, 190px);
+    }
+
+    .card1 {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .card2,
+    .card3,
+    .card5 {
+        grid-column: span 1;
+    }
+
+    .card4 {
+        grid-row: span 2;
+    }
+}
+
+@media (max-width: 430px) {
+    .bento-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card {
+        height: 230px;
+    }
 }
 
 </style>
@@ -53,12 +153,47 @@
 
 <body>
 
-<div class="bento-grid">
-    <div class="card card1">Profile</div>
-    <div class="card card2">Statistics</div>
-    <div class="card card3">Projects</div>
-    <div class="card card4">Activity</div>
-    <div class="card card5">AI Assistant</div>
-</div>
+<header class="gallery-header">
+    <p>Places worth remembering</p>
+    <h1>Travel moments</h1>
+</header>
+
+<main class="bento-grid">
+    <article class="card card1">
+        <img src="images/img3.jpg" alt="Longtail boat in a tropical lagoon">
+        <div class="card-content">
+            <h2>Into the blue</h2>
+            <p>Sea, sky, and a quiet horizon</p>
+        </div>
+    </article>
+    <article class="card card2">
+        <img src="images/img2.jpg" alt="Tropical beach with overwater bungalows">
+        <div class="card-content">
+            <h2>Island days</h2>
+            <p>Warm water and white sand</p>
+        </div>
+    </article>
+    <article class="card card3">
+        <img src="images/img6.jpg" alt="Waterfall and green mountain garden">
+        <div class="card-content">
+            <h2>Wild places</h2>
+            <p>Fresh air, open paths</p>
+        </div>
+    </article>
+    <article class="card card4">
+        <img src="images/img5.jpg" alt="Mountain valley landscape">
+        <div class="card-content">
+            <h2>Higher ground</h2>
+            <p>Roads through the mountains</p>
+        </div>
+    </article>
+    <article class="card card5">
+        <img src="images/img10.jpg" alt="Palace lights reflected on a lake at dusk">
+        <div class="card-content">
+            <h2>After sunset</h2>
+            <p>A city glowing beside the lake</p>
+        </div>
+    </article>
+</main>
 </body>
 </html>
