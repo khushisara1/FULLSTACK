@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Daily Journey</title>
+	<style>
+		:root {
+			--paper: #f6f0e3;
+			--ink: #201d19;
+			--muted: #71695d;
+			--rule: #b8ad9b;
+			--accent: #9d2f28;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			padding: 24px;
+			background: #d7d0c3;
+			color: var(--ink);
+			font-family: Georgia, "Times New Roman", serif;
+		}
+
+		.newspaper {
+			width: min(1100px, 100%);
+			margin: 0 auto;
+			padding: clamp(20px, 4vw, 48px);
+			background: var(--paper);
+			box-shadow: 0 12px 30px rgba(44, 35, 24, 0.2);
+		}
+
+		.masthead {
+			border-top: 4px solid var(--ink);
+			border-bottom: 2px solid var(--ink);
+			padding: 12px 0 10px;
+			text-align: center;
+		}
+
+		.masthead h1 {
+			margin: 0;
+			font-size: clamp(2.8rem, 8vw, 6rem);
+			line-height: 0.9;
+			letter-spacing: -2px;
+			text-transform: uppercase;
+		}
+
+		.strapline {
+			display: flex;
+			justify-content: space-between;
+			gap: 12px;
+			margin-top: 14px;
+			color: var(--muted);
+			font: 0.72rem Arial, sans-serif;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+
+		.edition {
+			margin: 12px 0 18px;
+			padding: 7px 0;
+			border-bottom: 1px solid var(--rule);
+			color: var(--accent);
+			font: bold 0.78rem Arial, sans-serif;
+			letter-spacing: 1.5px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		.lead {
+			display: grid;
+			grid-template-columns: 1.3fr 1fr;
+			gap: 24px;
+			padding-bottom: 24px;
+			border-bottom: 1px solid var(--rule);
+		}
+
+		.lead img {
+			width: 100%;
+			height: 100%;
+			min-height: 260px;
+			display: block;
+			object-fit: cover;
+			filter: sepia(0.15) saturate(0.9);
+		}
+
+		.label {
+			margin: 0 0 8px;
+			color: var(--accent);
+			font: bold 0.75rem Arial, sans-serif;
+			letter-spacing: 1.5px;
+			text-transform: uppercase;
+		}
+
+		h2,
+		h3 {
+			margin: 0;
+			line-height: 1.05;
+		}
+
+		.lead h2 {
+			font-size: clamp(2rem, 4vw, 3.5rem);
+		}
+
+		.story p,
+		.article p {
+			margin: 12px 0 0;
+			color: #4b463f;
+			font-size: 1rem;
+			line-height: 1.55;
+		}
+
+		.columns {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			gap: 22px;
+			padding-top: 22px;
+		}
+
+		.article {
+			padding-right: 20px;
+			border-right: 1px solid var(--rule);
+		}
+
+		.article:last-child {
+			padding-right: 0;
+			border-right: 0;
+		}
+
+		.article h3 {
+			font-size: 1.65rem;
+		}
+
+		.article img {
+			width: 100%;
+			height: 150px;
+			display: block;
+			margin-bottom: 14px;
+			object-fit: cover;
+			filter: sepia(0.2) saturate(0.85);
+		}
+
+		.drop-cap::first-letter {
+			float: left;
+			margin: 5px 7px 0 0;
+			color: var(--accent);
+			font-size: 3.4rem;
+			line-height: 0.75;
+		}
+
+		footer {
+			margin-top: 24px;
+			padding-top: 10px;
+			border-top: 2px solid var(--ink);
+			color: var(--muted);
+			font: 0.7rem Arial, sans-serif;
+			letter-spacing: 1px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		@media (max-width: 720px) {
+			body {
+				padding: 10px;
+			}
+
+			.strapline {
+				flex-direction: column;
+				gap: 5px;
+			}
+
+			.lead,
+			.columns {
+				grid-template-columns: 1fr;
+			}
+
+			.lead img {
+				min-height: 210px;
+				max-height: 300px;
+			}
+
+			.article,
+			.article:last-child {
+				padding: 0 0 20px;
+				border-right: 0;
+				border-bottom: 1px solid var(--rule);
+			}
+
+			.article:last-child {
+				padding-bottom: 0;
+				border-bottom: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main class="newspaper">
+		<header class="masthead">
+			<h1>The Daily Journey</h1>
+			<div class="strapline">
+				<span>Travel &amp; Places</span>
+				<span>Saturday, September 26, 2026</span>
+				<span>Volume 01 · No. 01</span>
+			</div>
+		</header>
+
+		<div class="edition">The world is waiting outside</div>
+
+		<section class="lead">
+			<img src="images/img1.jpg" alt="Boat travelling along a tropical river">
+			<article class="story">
+				<p class="label">The weekend feature</p>
+				<h2>Slow travel finds its way back to the water</h2>
+				<p class="drop-cap">From quiet rivers to bright island shores, the best journeys are often the ones that leave room to look around. Local boats, open skies, and unhurried mornings are changing the way travellers experience a place.</p>
+			</article>
+		</section>
+
+		<section class="columns">
+			<article class="article">
+				<img src="images/img2.jpg" alt="Tropical beach with overwater bungalows">
+				<p class="label">Coastlines</p>
+				<h3>A brighter kind of blue</h3>
+				<p>White sand and clear water make the island horizon feel almost endless. The quietest corners are still the most memorable.</p>
+			</article>
+
+			<article class="article">
+				<img src="images/img6.jpg" alt="Waterfall and green mountain garden">
+				<p class="label">Outdoors</p>
+				<h3>Where the path meets the falls</h3>
+				<p>Forest walks offer a different pace, with cool water, tall trees, and a little more space to notice the details.</p>
+			</article>
+
+			<article class="article">
+				<img src="images/img10.jpg" alt="Palace lights reflected on a lake at dusk">
+				<p class="label">City guide</p>
+				<h3>An evening beside the lake</h3>
+				<p>As the sun fades, old buildings glow across the water and the city becomes a picture made of reflections.</p>
+			</article>
+		</section>
+
+		<footer>Printed for curious minds · Travel well</footer>
+	</main>
+</body>
+</html>
