@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* The central container */
+    .mustache-container {
+      position: relative;
+      width: 200px;
+      height: 100px;
+    }
+
+    /* Left and right sides created via pseudo-elements */
+    .mustache-container::before,
+    .mustache-container::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 60px;
+      border-bottom: 30px solid black;
+    }
+
+    /* Left side curve */
+    .mustache-container::before {
+      left: 0;
+      border-bottom-left-radius: 100px 60px;
+      border-right: 20px solid transparent;
+      transform: rotate(-20deg);
+    }
+
+    /* Right side curve */
+    .mustache-container::after {
+      right: 0;
+      border-bottom-right-radius: 100px 60px;
+      border-left: 20px solid transparent;
+      transform: rotate(20deg);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mustache-container"></div>
+
+</body>
+</html>

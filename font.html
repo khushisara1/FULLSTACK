@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Font</title>
+
+    <style>
+        @font-face {
+            font-family: "HappySwirly";
+            src: url("./fonts/HappySwirly.ttf") format("truetype");
+        }
+        p{
+            font-family: "HappySwirly", cursive;
+            font-size: 20px;
+            color: pink !important;     
+        }
+        #myId{
+            font-family:sans-serif;
+        }
+        .myClass{
+            font-family:cursive;
+        }
+        input:email{
+            color:rgb(47, 42, 213);
+            background-color: aquamarine;
+            border-radius: 10%;
+            
+        }
+        section +p{
+            color:yellow;
+        }
+        button:hover{
+            color:white;
+            background-color: brown;
+        }
+        a:visited{
+            color: rgb(231, 22, 74);
+        }
+        a:link{
+            text-decoration: none;
+            color:rgb(32, 4, 4);
+        }
+        li:nth-child(odd){
+            background-color: antiquewhite;
+        }
+        input{
+            border: bottom 9px;;
+            display: block;
+            margin-top: 3%;
+            font-size: 25px;
+            border: bottom 9px;;
+            
+
+        }
+        input:required{
+            border-color: red;
+        }
+        input:optional{
+            border-color: green;
+        }
+        input:enabled{
+            box-shadow: 0 0 3px black;
+            background-color: antiquewhite;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <section>
+        <p>Heading</p>
+    </section>
+    <p>Hello world</p>
+    <p  id="myId">Hello Christmas</p>
+    <p class="myClass">Hello guys</p>
+    Email:
+    <input type="email">
+    <br>
+    <br>
+    <ul>
+        <li>1</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+    <a href="">Link</a><br><br>
+    <button>Click me!</button><br><br>
+    <input type="text" placeholder="First Name" required><br>
+    <input type="text" placeholder="Middle Name" disabled><br>
+    <input type="text" placeholder="Last Name" required>
+</body>
+</html>
