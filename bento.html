@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blue Bento</title>
+	<style>
+		:root {
+			--blue: #3b83bd;
+			--blue-light: #5aa5d2;
+			--blue-dark: #145886;
+			--background: #061b2b;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: 8px;
+			display: grid;
+			place-items: center;
+			background: var(--background);
+		}
+
+		.bento {
+			width: min(900px, 100%);
+			aspect-ratio: 1 / 1;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: 1fr 1fr 1fr;
+			gap: 5px;
+		}
+
+		.box {
+			min-width: 0;
+			min-height: 0;
+			border-radius: 8px;
+			background: var(--blue);
+		}
+
+		.feature {
+			grid-column: 1;
+			grid-row: 1 / span 2;
+			background: var(--blue-dark);
+		}
+
+		.top {
+			grid-column: 2 / span 2;
+			grid-row: 1;
+		}
+
+		.middle {
+			grid-column: 2;
+			grid-row: 2;
+			background: var(--blue-light);
+		}
+
+		.right {
+			grid-column: 3;
+			grid-row: 2 / span 2;
+			background: var(--blue-dark);
+		}
+
+		.bottom {
+			grid-column: 1 / span 2;
+			grid-row: 3;
+		}
+	</style>
+</head>
+<body>
+	<main class="bento">
+		<div class="box feature"></div>
+		<div class="box top"></div>
+		<div class="box middle"></div>
+		<div class="box right"></div>
+		<div class="box bottom"></div>
+	</main>
+</body>
+</html>
