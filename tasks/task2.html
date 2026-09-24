@@ -5,176 +5,102 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ShopKart | Travel Gear</title>
 	<style>
-		:root {
-			--blue: #2563eb;
-			--blue-dark: #172554;
-			--orange: #f59e0b;
-			--text: #1e293b;
-			--muted: #64748b;
-			--line: #e2e8f0;
-			--background: #f8fafc;
-		}
-
-		* {
-			box-sizing: border-box;
-		}
+		* { box-sizing: border-box; }
 
 		body {
 			margin: 0;
-			background: var(--background);
-			color: var(--text);
+			background: #f3f6fb;
+			color: #1e293b;
 			font-family: Arial, sans-serif;
 		}
 
 		.page {
-			width: min(1280px, 100%);
+			width: min(1100px, 100%);
 			margin: auto;
-			padding: 0 24px 40px;
+			padding: 0 20px 40px;
 		}
 
 		header {
-			min-height: 70px;
+			padding: 18px 0;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			gap: 24px;
-			border-bottom: 1px solid var(--line);
+			gap: 20px;
+			border-bottom: 1px solid #dbe3ef;
 		}
 
 		.brand {
-			color: var(--blue-dark);
+			color: #172554;
 			font-size: 1.3rem;
-			font-weight: 800;
+			font-weight: bold;
 			text-decoration: none;
 		}
 
-		.brand span {
-			color: var(--blue);
-		}
+		.brand span { color: #2563eb; }
 
 		.search {
-			width: min(360px, 42vw);
-			padding: 10px 14px;
-			border: 1px solid var(--line);
-			border-radius: 8px;
-			background: white;
-			color: var(--muted);
-		}
-
-		.header-icons {
-			display: flex;
-			gap: 16px;
-			color: var(--blue-dark);
-			font-size: 1.15rem;
-		}
-
-		.breadcrumb {
-			padding: 22px 0;
-			color: var(--muted);
-			font-size: 0.8rem;
-		}
-
-		.shop-layout {
-			display: grid;
-			grid-template-columns: 210px 1fr;
-			gap: 26px;
-		}
-
-		.filters {
-			padding: 20px;
-			border: 1px solid var(--line);
-			border-radius: 12px;
-			background: white;
-			align-self: start;
-		}
-
-		.filters h2 {
-			margin: 0 0 22px;
-			font-size: 1rem;
-		}
-
-		.filter-group {
-			padding: 16px 0;
-			border-top: 1px solid var(--line);
-		}
-
-		.filter-group strong {
-			display: block;
-			margin-bottom: 12px;
-			font-size: 0.8rem;
-		}
-
-		label {
-			display: block;
-			margin: 10px 0;
-			color: var(--muted);
-			font-size: 0.78rem;
-		}
-
-		input[type="checkbox"] {
-			accent-color: var(--blue);
-			margin-right: 7px;
-		}
-
-		.filter-button {
-			width: 100%;
+			width: 300px;
 			padding: 10px;
-			border: 0;
-			border-radius: 7px;
-			background: var(--blue);
-			color: white;
-			font-weight: bold;
-			cursor: pointer;
+			border: 1px solid #dbe3ef;
+			border-radius: 6px;
 		}
 
-		.catalogue-top {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			gap: 16px;
-			margin-bottom: 16px;
+		.page-title {
+			margin: 28px 0 18px;
 		}
 
-		.catalogue-top h1 {
+		.page-title h1 {
+			margin: 0 0 6px;
+			color: #172554;
+			font-size: 1.8rem;
+		}
+
+		.page-title p {
 			margin: 0;
-			color: var(--blue-dark);
-			font-size: 1.6rem;
+			color: #64748b;
 		}
 
-		.sort {
-			padding: 9px 12px;
-			border: 1px solid var(--line);
-			border-radius: 7px;
+		.categories {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			margin-bottom: 20px;
+		}
+
+		.categories button {
+			padding: 8px 14px;
+			border: 1px solid #cbd5e1;
+			border-radius: 20px;
 			background: white;
-			color: var(--muted);
+			color: #475569;
+		}
+
+		.categories button:first-child {
+			border-color: #2563eb;
+			background: #2563eb;
+			color: white;
 		}
 
 		.products {
 			display: grid;
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(4, minmax(0, 1fr));
 			gap: 16px;
 		}
 
 		.product-card {
-			min-width: 0;
 			display: flex;
+			min-width: 0;
 			flex-direction: column;
 			padding: 12px;
-			border: 1px solid var(--line);
-			border-radius: 12px;
+			border: 1px solid #e2e8f0;
+			border-radius: 10px;
 			background: white;
-			transition: transform 180ms ease, box-shadow 180ms ease;
 		}
 
-		.product-card:hover {
-			transform: translateY(-3px);
-			box-shadow: 0 10px 22px rgba(30, 64, 175, 0.12);
-		}
-
-		.product-image {
+		.product-card img {
 			width: 100%;
-			height: 150px;
-			border-radius: 8px;
+			height: 145px;
+			border-radius: 7px;
 			object-fit: cover;
 		}
 
@@ -182,91 +108,51 @@
 			display: flex;
 			flex: 1;
 			flex-direction: column;
-			padding: 14px 2px 2px;
+			padding-top: 12px;
 		}
 
 		.product-info h2 {
 			margin: 0;
-			font-size: 0.98rem;
+			font-size: 1rem;
 		}
 
 		.product-info p {
-			margin: 7px 0 12px;
-			color: var(--muted);
-			font-size: 0.78rem;
+			margin: 7px 0;
+			color: #64748b;
+			font-size: 0.8rem;
 			line-height: 1.4;
 		}
 
-		.rating {
-			margin-top: auto;
-			color: var(--orange);
-			font-size: 0.8rem;
-		}
+		.rating { color: #f59e0b; font-size: 0.8rem; }
 
-		.price-row {
+		.bottom {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			gap: 8px;
-			margin-top: 10px;
+			margin-top: auto;
+			padding-top: 12px;
 		}
 
-		.price {
-			color: var(--blue-dark);
-			font-size: 1rem;
-			font-weight: bold;
-		}
+		.price { color: #172554; font-weight: bold; }
 
 		.add-button {
 			padding: 8px 10px;
 			border: 0;
-			border-radius: 6px;
-			background: var(--blue);
+			border-radius: 5px;
+			background: #2563eb;
 			color: white;
 			font-size: 0.72rem;
-			font-weight: bold;
-			cursor: pointer;
 		}
 
-		@media (max-width: 900px) {
-			.shop-layout {
-				grid-template-columns: 170px 1fr;
-			}
-
-			.products {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-			}
+		@media (max-width: 850px) {
+			.products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 		}
 
-		@media (max-width: 600px) {
-			.page {
-				padding: 0 14px 28px;
-			}
-
-			.search {
-				display: none;
-			}
-
-			.shop-layout {
-				grid-template-columns: 1fr;
-			}
-
-			.filters {
-				display: none;
-			}
-
-			.products {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-				gap: 10px;
-			}
-
-			.product-image {
-				height: 120px;
-			}
-
-			.catalogue-top h1 {
-				font-size: 1.25rem;
-			}
+		@media (max-width: 520px) {
+			.search { display: none; }
+			.products { grid-template-columns: 1fr; }
+			.product-card img { height: 190px; }
 		}
 	</style>
 </head>
@@ -274,66 +160,39 @@
 	<div class="page">
 		<header>
 			<a class="brand" href="#">Shop<span>Kart</span></a>
-			<input class="search" type="search" placeholder="Search for travel gear..." aria-label="Search for products">
-			<div class="header-icons" aria-label="Shopping actions"><span aria-hidden="true">&#128722;</span><span aria-hidden="true">&#9825;</span></div>
+			<input class="search" type="search" placeholder="Search products..." aria-label="Search products">
+			<span aria-label="Shopping cart">&#128722;</span>
 		</header>
 
-		<div class="breadcrumb">Home &nbsp;/&nbsp; Travel Gear</div>
+		<section class="page-title">
+			<h1>Travel essentials</h1>
+			<p>Simple products for your next adventure.</p>
+		</section>
 
-		<main class="shop-layout">
-			<aside class="filters">
-				<h2>Filters</h2>
-				<div class="filter-group">
-					<strong>Category</strong>
-					<label><input type="checkbox"> Bags</label>
-					<label><input type="checkbox"> Cameras</label>
-					<label><input type="checkbox"> Outdoor gear</label>
-				</div>
-				<div class="filter-group">
-					<strong>Price range</strong>
-					<label><input type="checkbox"> Under Rs 2,000</label>
-					<label><input type="checkbox"> Rs 2,000 - 5,000</label>
-					<label><input type="checkbox"> Above Rs 5,000</label>
-				</div>
-				<button class="filter-button" type="button">Apply filters</button>
-			</aside>
+		<div class="categories">
+			<button type="button">All</button>
+			<button type="button">Bags</button>
+			<button type="button">Outdoor</button>
+			<button type="button">Accessories</button>
+		</div>
 
-			<section>
-				<div class="catalogue-top">
-					<h1>Travel essentials</h1>
-					<select class="sort" aria-label="Sort products">
-						<option>Sort: Popular</option>
-						<option>Sort: Price low to high</option>
-					</select>
-				</div>
-
-				<div class="products">
-					<article class="product-card">
-						<img class="product-image" src="../images/img1.jpg" alt="Travel boat on a river">
-						<div class="product-info"><h2>River Explorer Pack</h2><p>Lightweight day bag for slow journeys.</p><span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734; (32)</span><div class="price-row"><span class="price">Rs 2,490</span><button class="add-button" type="button">Add to cart</button></div></div>
-					</article>
-					<article class="product-card">
-						<img class="product-image" src="../images/img6.jpg" alt="Green mountain waterfall">
-						<div class="product-info"><h2>Trail Bottle</h2><p>Durable bottle for every outdoor plan.</p><span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733; (48)</span><div class="price-row"><span class="price">Rs 890</span><button class="add-button" type="button">Add to cart</button></div></div>
-					</article>
-					<article class="product-card">
-						<img class="product-image" src="../images/img5.jpg" alt="Mountain valley landscape">
-						<div class="product-info"><h2>Summit Camera</h2><p>Capture clear memories wherever you go.</p><span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734; (21)</span><div class="price-row"><span class="price">Rs 8,990</span><button class="add-button" type="button">Add to cart</button></div></div>
-					</article>
-					<article class="product-card">
-						<img class="product-image" src="../images/img2.jpg" alt="Tropical beach and water">
-						<div class="product-info"><h2>Island Sunglasses</h2><p>Simple style with UV protection.</p><span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734; (16)</span><div class="price-row"><span class="price">Rs 1,299</span><button class="add-button" type="button">Add to cart</button></div></div>
-					</article>
-					<article class="product-card">
-						<img class="product-image" src="../images/img7.jpg" alt="Paraglider over a green meadow">
-						<div class="product-info"><h2>Air Light Jacket</h2><p>A packable layer for changing weather.</p><span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733; (27)</span><div class="price-row"><span class="price">Rs 3,750</span><button class="add-button" type="button">Add to cart</button></div></div>
-					</article>
-					<article class="product-card">
-						<img class="product-image" src="../images/img10.jpg" alt="Lake and palace at dusk">
-						<div class="product-info"><h2>City Day Wallet</h2><p>Compact storage for everyday exploring.</p><span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734; (19)</span><div class="price-row"><span class="price">Rs 740</span><button class="add-button" type="button">Add to cart</button></div></div>
-					</article>
-				</div>
-			</section>
+		<main class="products">
+			<article class="product-card">
+				<img src="../images/img1.jpg" alt="Travel boat on a river">
+				<div class="product-info"><h2>River Explorer Pack</h2><p>Lightweight day bag for slow journeys.</p><span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span><div class="bottom"><span class="price">Rs 2,490</span><button class="add-button" type="button">Add</button></div></div>
+			</article>
+			<article class="product-card">
+				<img src="../images/img6.jpg" alt="Green mountain waterfall">
+				<div class="product-info"><h2>Trail Bottle</h2><p>Durable bottle for outdoor plans.</p><span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span><div class="bottom"><span class="price">Rs 890</span><button class="add-button" type="button">Add</button></div></div>
+			</article>
+			<article class="product-card">
+				<img src="../images/img5.jpg" alt="Mountain valley landscape">
+				<div class="product-info"><h2>Summit Camera</h2><p>Capture clear travel memories.</p><span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span><div class="bottom"><span class="price">Rs 8,990</span><button class="add-button" type="button">Add</button></div></div>
+			</article>
+			<article class="product-card">
+				<img src="../images/img2.jpg" alt="Tropical beach and water">
+				<div class="product-info"><h2>Island Sunglasses</h2><p>Simple style with UV protection.</p><span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span><div class="bottom"><span class="price">Rs 1,299</span><button class="add-button" type="button">Add</button></div></div>
+			</article>
 		</main>
 	</div>
 </body>
