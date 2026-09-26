@@ -3,23 +3,435 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaaS Landing page</title>
+        <title>FlowTask | Work made simple</title>
 
     <style>
-        nav{
-            display:flex;
-            width: 1200px;
-            height: 72px;
-            flex-direction: row;
-            justify-content: center;
-           
-        }
-    </style>
+            :root {
+                --blue: #4258d9;
+                --blue-dark: #1f2a63;
+                --text: #20284a;
+                --muted: #68718c;
+                --line: #e4e8f5;
+                --background: #f8faff;
+            }
 
-</head>
-<body>
-    <nav>
+            * {
+                box-sizing: border-box;
+            }
 
-    </nav>
-</body>
+            body {
+                margin: 0;
+                color: var(--text);
+                background: var(--background);
+                font-family: "Trebuchet MS", Arial, sans-serif;
+            }
+
+            .page {
+                width: min(1160px, 100%);
+                margin: auto;
+                padding: 0 28px 70px;
+            }
+
+            nav {
+                min-height: 76px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .logo {
+                color: var(--blue-dark);
+                font-size: 1.1rem;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            .logo span {
+                color: var(--blue);
+            }
+
+            .nav-links {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+            }
+
+            .nav-links a {
+                color: var(--muted);
+                font-size: 0.9rem;
+                text-decoration: none;
+            }
+
+            .nav-links a:hover {
+                color: var(--blue);
+            }
+
+            .nav-links .start-link {
+                padding: 10px 16px;
+                border-radius: 8px;
+                background: var(--blue);
+                color: white;
+            }
+
+            .hero {
+                display: grid;
+                grid-template-columns: 0.9fr 1.1fr;
+                align-items: center;
+                gap: 56px;
+                padding: 76px 0 82px;
+            }
+
+            .eyebrow {
+                width: fit-content;
+                margin: 0 0 18px;
+                padding: 7px 11px;
+                border-radius: 20px;
+                background: #e9edff;
+                color: var(--blue);
+                font-size: 0.75rem;
+                font-weight: bold;
+            }
+
+            h1 {
+                max-width: 520px;
+                margin: 0;
+                color: var(--blue-dark);
+                font-size: clamp(2.5rem, 6vw, 4.7rem);
+                line-height: 1.05;
+                letter-spacing: -2px;
+            }
+
+            .hero-copy {
+                max-width: 470px;
+                margin: 22px 0 0;
+                color: var(--muted);
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+
+            .actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                margin-top: 30px;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 13px 20px;
+                border: 1px solid var(--blue);
+                border-radius: 8px;
+                color: var(--blue);
+                font-size: 0.9rem;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            .button.primary {
+                background: var(--blue);
+                color: white;
+                box-shadow: 0 8px 16px rgba(66, 88, 217, 0.2);
+            }
+
+            .button:hover {
+                transform: translateY(-2px);
+            }
+
+            .preview {
+                position: relative;
+                padding: 16px;
+                border: 1px solid #dbe1f3;
+                border-radius: 18px;
+                background: white;
+                box-shadow: 0 22px 50px rgba(49, 65, 139, 0.15);
+                transform: rotate(1deg);
+            }
+
+            .preview-bar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 4px 4px 14px;
+                color: #99a2ba;
+                font-size: 0.7rem;
+            }
+
+            .dots {
+                display: flex;
+                gap: 5px;
+            }
+
+            .dots i {
+                width: 7px;
+                height: 7px;
+                display: block;
+                border-radius: 50%;
+                background: #ffb5a7;
+            }
+
+            .dots i:nth-child(2) {
+                background: #ffd66b;
+            }
+
+            .dots i:nth-child(3) {
+                background: #91d8a0;
+            }
+
+            .app {
+                display: grid;
+                grid-template-columns: 105px 1fr;
+                min-height: 300px;
+                overflow: hidden;
+                border: 1px solid #edf0f8;
+                border-radius: 10px;
+            }
+
+            .app-menu {
+                padding: 16px 12px;
+                background: #f5f6fd;
+            }
+
+            .app-menu strong {
+                display: block;
+                margin-bottom: 28px;
+                color: var(--blue-dark);
+                font-size: 0.75rem;
+            }
+
+            .app-menu p {
+                margin: 15px 0;
+                color: #8790aa;
+                font-size: 0.68rem;
+            }
+
+            .app-menu p:first-of-type {
+                color: var(--blue);
+                font-weight: bold;
+            }
+
+            .app-main {
+                padding: 22px;
+            }
+
+            .app-main h2 {
+                margin: 0;
+                font-size: 1.2rem;
+            }
+
+            .app-main > p {
+                margin: 7px 0 18px;
+                color: #9aa3b9;
+                font-size: 0.75rem;
+            }
+
+            .chart {
+                height: 105px;
+                display: flex;
+                align-items: end;
+                gap: 10px;
+                padding: 12px;
+                border: 1px solid #edf0f8;
+                border-radius: 9px;
+                background: #fbfcff;
+            }
+
+            .chart i {
+                flex: 1;
+                height: 35%;
+                border-radius: 5px 5px 2px 2px;
+                background: #aeb9ff;
+            }
+
+            .chart i:nth-child(2) { height: 60%; background: #7181ed; }
+            .chart i:nth-child(3) { height: 45%; background: #c2caff; }
+            .chart i:nth-child(4) { height: 82%; background: var(--blue); }
+            .chart i:nth-child(5) { height: 68%; background: #8c9af5; }
+
+            .mini-cards {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                margin-top: 12px;
+            }
+
+            .mini-card {
+                padding: 12px;
+                border-radius: 8px;
+                background: #f6f7fc;
+                color: #7d879e;
+                font-size: 0.7rem;
+            }
+
+            .mini-card b {
+                display: block;
+                margin-top: 5px;
+                color: var(--blue-dark);
+                font-size: 1rem;
+            }
+
+            .features {
+                padding-top: 56px;
+                border-top: 1px solid var(--line);
+                text-align: center;
+            }
+
+            .features h2 {
+                margin: 0;
+                font-size: 2rem;
+            }
+
+            .features-intro {
+                margin: 10px auto 30px;
+                color: var(--muted);
+            }
+
+            .feature-list {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+                text-align: left;
+            }
+
+            .feature {
+                padding: 24px;
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                background: white;
+            }
+
+            .feature-icon {
+                width: 36px;
+                height: 36px;
+                display: grid;
+                place-items: center;
+                border-radius: 10px;
+                background: #e9edff;
+                color: var(--blue);
+                font-weight: bold;
+            }
+
+            .feature h3 {
+                margin: 18px 0 8px;
+                font-size: 1.05rem;
+            }
+
+            .feature p {
+                margin: 0;
+                color: var(--muted);
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            @media (max-width: 760px) {
+                .page {
+                    padding-right: 18px;
+                    padding-left: 18px;
+                }
+
+                .nav-links a:not(.start-link) {
+                    display: none;
+                }
+
+                .hero {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                    padding: 54px 0 64px;
+                }
+
+                .preview {
+                    transform: none;
+                }
+
+                .feature-list {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media (max-width: 430px) {
+                .app {
+                    grid-template-columns: 82px 1fr;
+                }
+
+                .app-main {
+                    padding: 16px;
+                }
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="page">
+            <nav>
+                <a class="logo" href="#top">Flow<span>Task</span></a>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#docs">Docs</a>
+                    <a class="start-link" href="#start">Get Started</a>
+                </div>
+            </nav>
+
+            <main>
+                <section class="hero" id="top">
+                    <div>
+                        <p class="eyebrow">Work smarter</p>
+                        <h1>Build better products faster with your team.</h1>
+                        <p class="hero-copy">FlowTask keeps your work, ideas, and progress in one calm place so your team can focus on making things happen.</p>
+                        <div class="actions">
+                            <a class="button primary" href="#start">Get started</a>
+                            <a class="button" href="#features">View features</a>
+                        </div>
+                    </div>
+
+                    <div class="preview" aria-label="FlowTask product preview">
+                        <div class="preview-bar">
+                            <div class="dots"><i></i><i></i><i></i></div>
+                            <span>flowtask.app</span>
+                        </div>
+                        <div class="app">
+                            <aside class="app-menu">
+                                <strong>FlowTask</strong>
+                                <p>Overview</p>
+                                <p>Projects</p>
+                                <p>Team</p>
+                                <p>Settings</p>
+                            </aside>
+                            <div class="app-main">
+                                <h2>Good morning, team</h2>
+                                <p>Your work is moving nicely this week.</p>
+                                <div class="chart"><i></i><i></i><i></i><i></i><i></i></div>
+                                <div class="mini-cards">
+                                    <div class="mini-card">Open tasks <b>24</b></div>
+                                    <div class="mini-card">Completed <b>86%</b></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="features" id="features">
+                    <h2>Powerful features</h2>
+                    <p class="features-intro">Everything your team needs to move from idea to finished work.</p>
+                    <div class="feature-list">
+                        <article class="feature">
+                            <div class="feature-icon">&#9889;</div>
+                            <h3>Fast and reliable</h3>
+                            <p>Keep important work easy to find and simple to finish.</p>
+                        </article>
+                        <article class="feature">
+                            <div class="feature-icon">&#9733;</div>
+                            <h3>Team collaboration</h3>
+                            <p>Share updates and keep everyone moving in the same direction.</p>
+                        </article>
+                        <article class="feature">
+                            <div class="feature-icon">&#10003;</div>
+                            <h3>Clear by design</h3>
+                            <p>A focused workspace that helps your team do its best work.</p>
+                        </article>
+                    </div>
+                </section>
+            </main>
+        </div>
 </html>
