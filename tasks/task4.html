@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tech Summit 2026</title>
+	<style>
+		:root {
+			--navy: #102a43;
+			--blue: #1479c9;
+			--sky: #eaf5ff;
+			--orange: #f59e0b;
+			--text: #243b53;
+			--muted: #627d98;
+			--line: #d9e2ec;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			background: #f7fbff;
+			color: var(--text);
+			font-family: Arial, sans-serif;
+		}
+
+		.page {
+			width: min(1120px, 100%);
+			margin: auto;
+			padding: 0 22px 40px;
+		}
+
+		header {
+			min-height: 68px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 20px;
+			border-bottom: 1px solid var(--line);
+		}
+
+		.logo {
+			color: var(--navy);
+			font-size: 1.1rem;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		.logo span {
+			color: var(--blue);
+		}
+
+		nav {
+			display: flex;
+			gap: 22px;
+		}
+
+		nav a {
+			color: var(--muted);
+			font-size: 0.85rem;
+			text-decoration: none;
+		}
+
+		nav a:hover {
+			color: var(--blue);
+		}
+
+		.hero {
+			min-height: 315px;
+			display: flex;
+			align-items: end;
+			padding: 42px;
+			margin-top: 24px;
+			border-radius: 14px;
+			color: white;
+			background:
+				linear-gradient(90deg, rgba(8, 35, 60, 0.9), rgba(8, 35, 60, 0.25)),
+				url("../images/img5.jpg") center / cover;
+		}
+
+		.hero-content {
+			max-width: 560px;
+		}
+
+		.tag {
+			display: inline-block;
+			margin-bottom: 12px;
+			padding: 6px 10px;
+			border-radius: 20px;
+			background: var(--orange);
+			color: #412002;
+			font-size: 0.7rem;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		.hero h1 {
+			margin: 0;
+			font-size: clamp(2.2rem, 6vw, 4.2rem);
+			line-height: 1;
+		}
+
+		.hero p {
+			margin: 12px 0 0;
+			color: #d9edff;
+			line-height: 1.5;
+		}
+
+		.button {
+			display: inline-block;
+			margin-top: 20px;
+			padding: 11px 17px;
+			border-radius: 7px;
+			background: white;
+			color: var(--blue);
+			font-size: 0.85rem;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		.section-title {
+			margin: 32px 0 14px;
+			color: var(--navy);
+			font-size: 1.4rem;
+		}
+
+		.details {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 14px;
+		}
+
+		.detail,
+		.speaker,
+		.schedule {
+			padding: 18px;
+			border: 1px solid var(--line);
+			border-radius: 10px;
+			background: white;
+		}
+
+		.detail strong {
+			display: block;
+			margin-bottom: 7px;
+			color: var(--blue);
+			font-size: 0.75rem;
+			text-transform: uppercase;
+		}
+
+		.detail span {
+			color: var(--muted);
+			font-size: 0.9rem;
+		}
+
+		.speakers {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 14px;
+		}
+
+		.speaker {
+			text-align: center;
+		}
+
+		.speaker img {
+			width: 72px;
+			height: 72px;
+			margin-bottom: 10px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		.speaker h3 {
+			margin: 0;
+			font-size: 0.95rem;
+		}
+
+		.speaker p {
+			margin: 6px 0 0;
+			color: var(--muted);
+			font-size: 0.75rem;
+		}
+
+		.lower-content {
+			display: grid;
+			grid-template-columns: 1.1fr 0.9fr;
+			gap: 20px;
+		}
+
+		.schedule-row {
+			display: grid;
+			grid-template-columns: 80px 1fr;
+			gap: 14px;
+			padding: 12px 0;
+			border-bottom: 1px solid var(--line);
+		}
+
+		.schedule-row:last-child {
+			border-bottom: 0;
+		}
+
+		.schedule-row time {
+			color: var(--blue);
+			font-size: 0.8rem;
+			font-weight: bold;
+		}
+
+		.schedule-row strong {
+			display: block;
+			font-size: 0.9rem;
+		}
+
+		.schedule-row span {
+			display: block;
+			margin-top: 4px;
+			color: var(--muted);
+			font-size: 0.78rem;
+		}
+
+		.about {
+			padding: 24px;
+			border-radius: 10px;
+			background: var(--navy);
+			color: white;
+		}
+
+		.about h2 {
+			margin: 0 0 12px;
+		}
+
+		.about p {
+			margin: 0;
+			color: #c9d8e8;
+			font-size: 0.9rem;
+			line-height: 1.6;
+		}
+
+		@media (max-width: 700px) {
+			.page {
+				padding: 0 14px 30px;
+			}
+
+			nav {
+				gap: 10px;
+			}
+
+			nav a:not(:last-child) {
+				display: none;
+			}
+
+			.hero {
+				min-height: 300px;
+				padding: 26px;
+			}
+
+			.details,
+			.speakers,
+			.lower-content {
+				grid-template-columns: 1fr;
+			}
+
+			.speakers {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<header>
+			<a class="logo" href="#">North<span>bridge</span> University</a>
+			<nav>
+				<a href="#event">Event</a>
+				<a href="#speakers">Speakers</a>
+				<a href="#schedule">Schedule</a>
+				<a href="#register">Register</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="hero" id="event">
+				<div class="hero-content">
+					<span class="tag">Campus event · 2026</span>
+					<h1>Tech Summit 2026</h1>
+					<p>Ideas, people, and technology coming together to shape a smarter future.</p>
+					<a class="button" id="register" href="#details">Register now</a>
+				</div>
+			</section>
+
+			<h2 class="section-title" id="details">Event details</h2>
+			<section class="details">
+				<div class="detail"><strong>Date</strong><span>October 18, 2026</span></div>
+				<div class="detail"><strong>Location</strong><span>University Innovation Hall</span></div>
+				<div class="detail"><strong>Entry</strong><span>Free for all students</span></div>
+			</section>
+
+			<h2 class="section-title" id="speakers">Featured speakers</h2>
+			<section class="speakers">
+				<article class="speaker"><img src="../images/img1.jpg" alt="Speaker portrait placeholder"><h3>Riya Mehta</h3><p>Product Designer</p></article>
+				<article class="speaker"><img src="../images/img4.jpg" alt="Speaker portrait placeholder"><h3>Arjun Rao</h3><p>Technology Lead</p></article>
+				<article class="speaker"><img src="../images/img7.jpg" alt="Speaker portrait placeholder"><h3>Sana Khan</h3><p>Startup Founder</p></article>
+				<article class="speaker"><img src="../images/img9.jpg" alt="Speaker portrait placeholder"><h3>Dev Shah</h3><p>Researcher</p></article>
+			</section>
+
+			<h2 class="section-title" id="schedule">Schedule</h2>
+			<section class="lower-content">
+				<div class="schedule">
+					<div class="schedule-row"><time>10:00 AM</time><div><strong>Opening keynote</strong><span>Welcome and the future of technology</span></div></div>
+					<div class="schedule-row"><time>11:30 AM</time><div><strong>Design for people</strong><span>Building useful digital experiences</span></div></div>
+					<div class="schedule-row"><time>01:00 PM</time><div><strong>Student showcase</strong><span>Projects from the university community</span></div></div>
+					<div class="schedule-row"><time>03:00 PM</time><div><strong>Closing conversation</strong><span>What comes next?</span></div></div>
+				</div>
+				<aside class="about">
+					<h2>Be part of the conversation</h2>
+					<p>Meet other curious students, hear practical ideas, and discover new ways to use technology in your work.</p>
+				</aside>
+			</section>
+		</main>
+	</div>
+</body>
+</html>
