@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>Rock Paper Scissors</h1>
+    <p>Choose your move:</p>
+
+    <button onclick="play('Rock')">Rock</button>
+    <button onclick="play('Paper')">Paper</button>
+    <button onclick="play('Scissors')">Scissors</button>
+
+    <div id="result"></div>
+
+    <p id="score">You: 0 | Computer: 0 | Draws: 0</p>
+
+    <button onclick="resetGame()">Reset Game</button>
+
+    <script>
+        let userScore = 0;
+        let computerScore = 0;
+        let draws = 0;
+
+        function play(userChoice) {
+            let choices = ["Rock", "Paper", "Scissors"];
+
+            let computerChoice =
+                choices[Math.floor(Math.random() * 3)];
+
+            let result = "";
+
+            if (userChoice === computerChoice) {
+                result = "It's a Draw!";
+                draws++;
+            } else if (
+                (userChoice === "Rock" && computerChoice === "Scissors") ||
+                (userChoice === "Paper" && computerChoice === "Rock") ||
+                (userChoice === "Scissors" && computerChoice === "Paper")
+            ) {
+                result = "You Win!";
+                userScore++;
+            } else {
+                result = "Computer Wins!";
+                computerScore++;
+            }
+
+            document.getElementById("result").innerHTML =
+                "You chose: " + userChoice +
+                "<br>Computer chose: " + computerChoice +
+                "<br><br>" + result;
+
+            document.getElementById("score").textContent =
+                "You: " + userScore +
+                " | Computer: " + computerScore +
+                " | Draws: " + draws;
+        }
+
+        function resetGame() {
+            userScore = 0;
+            computerScore = 0;
+            draws = 0;
+
+            document.getElementById("result").textContent = "";
+            document.getElementById("score").textContent =
+                "You: 0 | Computer: 0 | Draws: 0";
+        }
+    </script>
+
+</body>
+</html>

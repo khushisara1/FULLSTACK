@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Whack a Mole</title>
+
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 80px);
+            gap: 5px;
+        }
+
+        .cell {
+            width: 80px;
+            height: 80px;
+            background: lightgray;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .active {
+            background: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Whack a Mole</h2>
+
+    <p>Score: <span id="score">0</span></p>
+    <p>Time: <span id="time">30</span> seconds</p>
+
+    <div class="grid" id="grid"></div>
+
+    <button onclick="startGame()">Start Game</button>
+    <button onclick="stopGame()">Stop Game</button>
+
+    <p id="message">Click Start Game to play!</p>
+
+    <script>
+        let grid = document.getElementById("grid");
+        let score = 0;
+        let time = 30;
+
+        let moleTimer;
+        let gameTimer;
+        let activeCell = null;
+        let running = false;
+
+        
+        for (let i = 0; i < 9; i++) {
+            let cell = document.createElement("button");
+            cell.className = "cell";
+            grid.appendChild(cell);
+        }
+
+        let cells = document.querySelectorAll(".cell");
+
+        
+        function showMole() {
+            cells.forEach(cell => {
+                cell.classList.remove("active");
+                cell.textContent = "";
+            });
+
+            let index = Math.floor(Math.random() * 9);
+
+            activeCell = cells[index];
+            activeCell.classList.add("active");
+            activeCell.textContent = "🐹";
+        }
+
+        
+        grid.addEventListener("click", function(event) {
+            if (!running) return;
+
+            if (event.target === activeCell) {
+                score++;
+
+                document.getElementById("score").textContent = score;
+
+                activeCell.textContent = "";
+                activeCell.classList.remove("active");
+                activeCell = null;
+            }
+        });
+
+        
+        function startGame() {
+            clearInterval(moleTimer);
+            clearInterval(gameTimer);
+
+            score = 0;
+            time = 30;
+            running = true;
+
+            document.getElementById("score").textContent = score;
+            document.getElementById("time").textContent = time;
+            document.getElementById("message").textContent = "Click the mole!";
+
+            showMole();
+
+            moleTimer = setInterval(showMole, 800);
+
+            gameTimer = setInterval(function() {
+                time--;
+
+                document.getElementById("time").textContent = time;
+
+                if (time <= 0) {
+                    stopGame();
+                    document.getElementById("message").textContent =
+                        "Game Over! Final Score: " + score;
+                }
+            }, 1000);
+        }
+
+        
+        function stopGame() {
+            clearInterval(moleTimer);
+            clearInterval(gameTimer);
+
+            running = false;
+            activeCell = null;
+
+            cells.forEach(cell => {
+                cell.textContent = "";
+                cell.classList.remove("active");
+            });
+
+            document.getElementById("message").textContent =
+                "Game stopped! Final Score: " + score;
+        }
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Number Guessing Game</h1>
+    <p>Guess a number between 1 and 7</p>
+
+    <input type="number" id="guess"
+           placeholder="Enter your guess">
+
+    <button onclick="checkGuess()">Guess</button>
+
+    <p id="message"></p>
+    <p id="chances">Chances remaining: 7</p>
+
+    <script>
+        let num = Math.floor(Math.random() * 7) + 1;
+        let attempts = 7;
+        let won = false;
+
+        function checkGuess() {
+            let input = document.getElementById("guess");
+            let guess = Number(input.value);
+            let message = document.getElementById("message");
+
+            if (input.value === "" || !Number.isInteger(guess) ||
+                guess < 1 || guess > 7) {
+                message.textContent =
+                    "Enter a whole number between 1 and 7.";
+                return;
+            }
+
+            if (won || attempts === 0) {
+                message.textContent = "Game over! Start a new game.";
+                return;
+            }
+
+            attempts--;
+
+            if (guess === num) {
+                message.textContent = "Correct! You guessed the number.";
+                won = true;
+            } else if (guess < num) {
+                message.textContent = "Too low! Try a higher number.";
+            } else {
+                message.textContent = "Too high! Try a lower number.";
+            }
+
+            document.getElementById("chances").textContent =
+                "Chances remaining: " + attempts;
+
+            if (!won && attempts === 0) {
+                message.textContent =
+                    "Game over! The number was " + num + ".";
+            }
+
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
